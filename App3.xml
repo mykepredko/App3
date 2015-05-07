@@ -1,1 +1,174 @@
-<xml xmlns="http://www.w3.org/1999/xhtml"></xml>
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="variables_set" id="2" inline="true" x="59" y="44">
+    <field name="VAR">distance</field>
+    <value name="VALUE">
+      <block type="math_number" id="9">
+        <field name="NUM">0</field>
+      </block>
+    </value>
+    <next>
+      <block type="controls_whileUntil" id="16" inline="false">
+        <field name="MODE">WHILE</field>
+        <value name="NUMBER">
+          <block type="logic_compare" id="23" inline="true">
+            <field name="OP">GT</field>
+            <value name="A">
+              <block type="sensor_object" id="34">
+                <field name="OBJECT">LEFTFRONT</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number" id="41">
+                <field name="NUM">75</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO">
+          <block type="movement_forward" id="51">
+            <next>
+              <block type="robot_delay" id="53" inline="true">
+                <value name="DELAY">
+                  <block type="math_number" id="60">
+                    <field name="NUM">200</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="movement_stop" id="70">
+                    <next>
+                      <block type="robot_delay" id="71" inline="true">
+                        <value name="DELAY">
+                          <block type="math_number" id="72">
+                            <field name="NUM">100</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="variables_set" id="76" inline="true">
+                            <field name="VAR">distance</field>
+                            <value name="VALUE">
+                              <block type="math_arithmetic" id="83" inline="true">
+                                <field name="OP">ADD</field>
+                                <value name="A">
+                                  <block type="variables_get" id="94">
+                                    <field name="VAR">distance</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number" id="90">
+                                    <field name="NUM">1</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="oled_cleardisplay" id="103">
+            <next>
+              <block type="oled_setcursor" id="112" inline="true">
+                <value name="STARTX">
+                  <block type="math_number" id="119">
+                    <field name="NUM">10</field>
+                  </block>
+                </value>
+                <value name="STARTY">
+                  <block type="math_number" id="120">
+                    <field name="NUM">10</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="oled_drawtext" id="129">
+                    <field name="TEXT">distance = </field>
+                    <next>
+                      <block type="oled_drawnumber" id="138" inline="true">
+                        <value name="NUMBER">
+                          <block type="variables_get" id="142">
+                            <field name="VAR">distance</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="controls_whileUntil" id="149" inline="false">
+                            <field name="MODE">WHILE</field>
+                            <value name="NUMBER">
+                              <block type="logic_compare" id="156" inline="true">
+                                <field name="OP">NEQ</field>
+                                <value name="A">
+                                  <block type="variables_get" id="160">
+                                    <field name="VAR">distance</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number" id="167">
+                                    <field name="NUM">0</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="DO">
+                              <block type="movement_reverse" id="177">
+                                <next>
+                                  <block type="robot_delay" id="178" inline="true">
+                                    <value name="DELAY">
+                                      <block type="math_number" id="179">
+                                        <field name="NUM">200</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="movement_stop" id="180">
+                                        <next>
+                                          <block type="robot_delay" id="181" inline="true">
+                                            <value name="DELAY">
+                                              <block type="math_number" id="182">
+                                                <field name="NUM">100</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="variables_set" id="183" inline="true">
+                                                <field name="VAR">distance</field>
+                                                <value name="VALUE">
+                                                  <block type="math_arithmetic" id="184" inline="true">
+                                                    <field name="OP">ADD</field>
+                                                    <value name="A">
+                                                      <block type="variables_get" id="185">
+                                                        <field name="VAR">distance</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="B">
+                                                      <block type="math_number" id="186">
+                                                        <field name="NUM">1</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </statement>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>
